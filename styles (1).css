@@ -1,10 +1,11 @@
-/* WEEK 5 — SESSION 1 SOLUTION: desktop styling */
-
-/* Make width calculations predictable. */
-/*If I say an element is 300px side, its final visible width stays 300px, even when I add padding and a border */
+/* Makes padding and borders part of an element's width.
+   This also helps prevent horizontal scrolling. */
 * {
   box-sizing: border-box;
 }
+
+
+/*  PAGE STYLING  */
 
 body {
   margin: 0;
@@ -14,25 +15,44 @@ body {
   background: #F7F7F8;
 }
 
+
+/* Keeps page content centered and readable. */
 .page-shell {
+  width: 100%;
   max-width: 800px;
   margin: 0 auto;
   padding: 24px;
 }
+
+
+/*  HEADER  */
 
 .site-header {
   background: #FFFFFF;
   border-bottom: 4px solid #C8102E;
 }
 
+.site-header p {
+  margin-bottom: 0;
+}
+
+
+/* Gives headings a consistent visual style. */
 h1,
 h2 {
   color: #7A1735;
 }
 
+h1 {
+  margin-top: 0;
+}
+
 .intro-section {
   margin-bottom: 24px;
 }
+
+
+/*  FORM  */
 
 form {
   background: #FFFFFF;
@@ -52,30 +72,53 @@ legend {
   font-weight: 700;
 }
 
+
+/* Reusable spacing for each form control. */
 .form-group {
   margin-bottom: 18px;
 }
 
+
+/* Makes labels easy to read and click. */
 label {
   display: block;
   margin-bottom: 6px;
   font-weight: 700;
 }
 
+
+/* Gives all main form controls the same appearance. */
 input,
 select,
 textarea {
   width: 100%;
+  max-width: 100%;
   padding: 10px 12px;
   font: inherit;
+  color: #23252A;
+  background: #FFFFFF;
   border: 1px solid #BFC4CA;
   border-radius: 6px;
-  background: #FFFFFF;
 }
 
 textarea {
   resize: vertical;
 }
+
+
+/*  KEYBOARD FOCUS  */
+
+/* Makes the selected control visible when using Tab
+   and Shift+Tab on the keyboard. */
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+  outline: 3px solid #005FCC;
+  outline-offset: 2px;
+  border-color: #005FCC;
+}
+
 
 .checkbox-row {
   display: flex;
@@ -85,12 +128,16 @@ textarea {
 
 .checkbox-row input {
   width: auto;
+  margin: 0;
 }
 
 .checkbox-row label {
   margin: 0;
   font-weight: 400;
 }
+
+
+/*  BUTTON  */
 
 button {
   padding: 11px 18px;
@@ -103,9 +150,49 @@ button {
   cursor: pointer;
 }
 
+button:hover {
+  background: #9F0D25;
+}
+
+
+/*  FOOTER  */
+
 .site-footer {
   margin-top: 32px;
   color: #676B72;
   background: #FFFFFF;
   border-top: 1px solid #E4E5E7;
+}
+
+
+/*  RESPONSIVE DESIGN  */
+
+/* Changes spacing when the browser becomes narrow. */
+@media (max-width: 600px) {
+
+  .page-shell {
+    padding: 16px;
+  }
+
+  form {
+    padding: 16px;
+  }
+
+  fieldset {
+    padding: 14px;
+  }
+
+  h1 {
+    font-size: 1.7rem;
+  }
+
+  h2 {
+    font-size: 1.3rem;
+  }
+
+  /* Makes the submit button easier to use on a phone. */
+  button {
+    width: 100%;
+  }
+
 }
